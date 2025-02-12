@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WADC Code Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>WADC Code Reordering Challenge</h1>
+    <p>Level <span id="level-number">1</span> of 5</p> 
+    <p>⏳ Time Left: <span id="timer">30</span> seconds</p> <!-- Timer display -->
+
+    <div id="code-container"></div>
+
+    <button id="check-answer" onclick="checkOrder()">Check Answer</button>
+    <p id="result">
+    <p id="program-results" style="display: none;"></p>
+
+    <button id="next-level" onclick="nextLevel()" style="display:none;">Next Level</button>
+    <button id="restart" onclick="restartGame()" style="display:none;">Restart</button>
+
+    <!-- Prize Screen (Hidden Initially) -->
+    <div id="prize-screen" style="display:none;">
+        <h2>🎉 Congratulations! You Won! 🎉</h2>
+        <p>You've completed all levels.</p>
+        <button onclick="restartGame()">Restart</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
