@@ -157,13 +157,17 @@ function restartGame() {
     loadLevel(); // Reload the game from Level 1
 }
 
-// Drag-and-Drop Functionality 
-function enableDragAndDrop() {
-    let draggedItem = null;
+let draggedItem = null;
 
-    document.querySelectorAll('.code-line').forEach(item => {
-        item.addEventListener('dragstart', () => {
+// Enable drag and drop for both mouse and touch
+function enableDragAndDrop() {
+    let items = document.querySelectorAll('.code-line');
+
+    items.forEach(item => {
+        // Mouse Events
+        item.addEventListener('dragstart', (event) => {
             draggedItem = item;
+            event.dataTransfer.setData('text/plain', item.innerText);
         });
 
         item.addEventListener('dragover', (event) => {
@@ -184,8 +188,40 @@ function enableDragAndDrop() {
                 }
             }
         });
+
+        // Touch Events (For Mobile & Tablets)
+        item.addEventListener('touchstart', (event) => {
+            draggedItem = item;
+            event.target.classList.add('dragging');
+        });
+
+        item.addEventListener('touchmove', (event) => {
+            event.preventDefault();
+            let touchLocation = event.touches[0];
+            let hoveredElement = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+
+            if (hoveredElement && hoveredElement.classList.contains('code-line') && hoveredElement !== draggedItem) {
+                let parent = hoveredElement.parentNode;
+                let current = Array.from(parent.children).indexOf(hoveredElement);
+                let dragged = Array.from(parent.children).indexOf(draggedItem);
+
+                if (dragged < current) {
+                    parent.insertBefore(draggedItem, hoveredElement.nextSibling);
+                } else {
+                    parent.insertBefore(draggedItem, hoveredElement);
+                }
+            }
+        });
+
+        item.addEventListener('touchend', () => {
+            draggedItem.classList.remove('dragging');
+            draggedItem = null;
+        });
     });
 }
+
+// Run function when loading a level
+enableDragAndDrop();
 
 // Load the first level when the page starts
 loadLevel();
