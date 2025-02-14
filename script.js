@@ -54,7 +54,7 @@ function startTimer() {
                 document.getElementById("code-container").style.display = "none";
                 document.getElementById("check-answer").style.display = "none"; 
                 document.getElementById("next-level").style.display = "none";
-                document.getElementById("result").innerText = "⏳ Time's up! You didn't complete all levels.";
+                document.getElementById("result").innerText = "Time's up! You didn't complete all levels ⑉";
                 document.getElementById("restart").style.display = "block"; // Show Restart button
             }
         }
@@ -105,8 +105,8 @@ function checkOrder() {
         correctAnswers++;
         clearInterval(timer);
 
-        document.getElementById("result").innerText = "✅ Correct! Well done!";
-        document.getElementById("program-results").innerText = "🔹 Output: " + programOutputs[currentLevel]; 
+        document.getElementById("result").innerText = "Correct! Well done! ☑";
+        document.getElementById("program-results").innerText = " Output │ " + programOutputs[currentLevel]; 
         document.getElementById("program-results").style.display = "block"; // Show program output
         document.getElementById("check-answer").style.display = "none"; // Hide "Check Answer" button
         document.getElementById("next-level").style.display = "block";
@@ -115,7 +115,7 @@ function checkOrder() {
             nextLevel(); 
         }
     } else {
-        document.getElementById("result").innerText = "❌ Incorrect. Try again!";
+        document.getElementById("result").innerText = "Incorrect ☒\nTry again!";
     }
 }
 
