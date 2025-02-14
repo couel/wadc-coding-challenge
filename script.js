@@ -25,6 +25,14 @@ let currentLevel = 0;
 let timer;
 let timeLeft = 30;
 
+// Function to start the game
+function startGame() {
+    document.getElementById("intro-screen").style.display = "none"; // Hide intro screen
+    document.getElementById("game-container").style.display = "block"; // Show game UI
+
+    loadLevel(); // Start Level 1
+}
+
 // Function to start a 30-second countdown
 function startTimer() {
     clearInterval(timer); // Clear any existing timer

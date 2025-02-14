@@ -5,25 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WADC Code Challenge</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>WADC Code Reordering Challenge</h1>
-    <p>Level <span id="level-number">1</span> of 5</p> 
-    <p>⏳ Time Left: <span id="timer">30</span> seconds</p> <!-- Timer display -->
 
-    <div id="code-container"></div>
+    <!-- Intro Screen (Shown First) -->
+    <div id="intro-screen">
+        <h2>Welcome to the WADC Code Challenge!</h2>
+        <p>Drag and drop the scrambled code into the correct order.</p>
+        <p>You have <strong>30 seconds</strong> per level!</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
 
-    <button id="check-answer" onclick="checkOrder()">Check Answer</button>
-    <p id="result">
-    <p id="program-results" style="display: none;"></p>
+    <!-- Game UI (Hidden Until Start) -->
+    <div id="game-container" style="display:none;">
+        <p>Level <span id="level-number">1</span> of 5</p>
+        <p id="timer">⏳ Time Left: <span id="time">30</span> seconds</p>
+        <div id="code-container"></div>
+        <button id="check-answer" onclick="checkOrder()">Check Answer</button>
+        <p id="result"></p>
+        <p id="program-results" style="display:none;"></p> <!-- Program Output -->
+        <button id="next-level" onclick="nextLevel()" style="display:none;">Next Level</button>
+        <button id="restart" onclick="restartGame()" style="display:none;">Restart</button>
+    </div>
 
-    <button id="next-level" onclick="nextLevel()" style="display:none;">Next Level</button>
-    <button id="restart" onclick="restartGame()" style="display:none;">Restart</button>
-
-    <!-- Prize Screen (Hidden Initially) -->
+    <!-- Prize Screen (Hidden Until Winning) -->
     <div id="prize-screen" style="display:none;">
         <h2>🎉 Congratulations! You Won! 🎉</h2>
-        <p>You've completed all levels.</p>
+        <p>You've successfully completed all levels.</p>
         <button onclick="restartGame()">Restart</button>
     </div>
 

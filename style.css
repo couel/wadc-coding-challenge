@@ -1,28 +1,131 @@
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  #code-container {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 20px auto;
-  }
-  
-  .code-line {
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin: 5px;
-    cursor: grab;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+  font-family: 'Avenir', sans-serif;
+  text-align: center;
+  background-color: #8C364E; /* Light Beige */
+  color: #272323; /* Dark Gray */
+  margin: 0;
+  padding: 0;
+}
+
+/* Center Game Elements */
+#game-container {
+  max-width: 550px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #f6efeb; /* Soft Pink */
+  border-radius: 20px 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Code Block Styling */
+#code-container {
+  display: contents;
+  flex-direction: column;
+  width: 400px;
+  margin: 20px auto;
+  background: #f6efeb; /* White */
+  padding: 15px;
+  border-radius: 10px 15px;
+  box-shadow: 0px 5px 10px F6EFEB(0, 0, 0, 0.3);
+}
+
+.code-line {
+  background-color: #8C364E; /* Deep Red */
+  padding: 12px;
+  margin: 15px;
+  cursor: grab;
+  border: 2px solid #8c364e; /* Dark Gray */
+  border-radius: 10px 15px;
+  font-weight: 500;
+  color: #F6EFEB; /* Light Beige */
+  transition: transform 0.2s ease-in-out, background 0.3s;
+}
+
+.code-line:hover {
+  background-color: #9f435d; /* Slightly darker red on hover */
+  transform: scale(1.02);
+}
+
+/* Center Buttons */
+button {
+  font-family: 'Avenir', sans-serif;
+  display: block;
+  width: 190px;
+  margin: 10px auto;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #8C364E; /* Deep Red */
+  color: #F6EFEB; /* Light Beige */
+  border: none;
+  border-radius: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #9f435d;
+  transform: scale(1.05);
+}
+
+/* Timer Styling */
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  color: #8C364E; /* Deep Red */
+}
+
+/* Fade In Animations */
+#code-container, #game-container, #prize-screen {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Intro Screen */
+#intro-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f6efeb; /* Deep Red */
+  color: #272323; /* Light Beige */
+  padding: 35px;
+  border-radius: 20px 50px;
+  text-align: start;
+  width: 370px;
+  box-shadow: 0px 0px 10px rgb(170, 170, 170, 0.2);
+}
+
+#intro-screen button {
+  padding: 11px 11px;
+  background-color: #8C364E; /* Dark Gray */
+  font-size: 15px;
+  color: #f6efeb;
+  border: none;
+  border-radius: 10px 15px;
+  cursor: pointer;
+  margin-top: 40px;
+  transition: all 0.3s ease;
+}
+
+#intro-screen button:hover {
+  background-color: #9f435d;
+  transform: scale(1.05);
+}
+
+/* Prize Screen */
+#prize-screen {
+  background: #f6efeb; /* Deep Red */
+  color: #272323;
+  padding: 35px;
+  border-radius: 17px;
+  text-align: center;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
